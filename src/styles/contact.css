@@ -1,0 +1,82 @@
+#contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Itim;
+    margin-bottom: 5%;
+}
+
+.inside-contact-container {
+  width: 90%;
+  display: flex;
+}
+
+.contact-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-side p{
+    width: 60%;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    
+}
+.contact-label {
+    color: #000;
+    font-size: 20px;
+    text-align: left;
+}
+
+.contact-input {
+  width: 350px;
+  height: 30px;
+  color: white;
+  background-color: rgba(230, 126, 159, 0.5);
+  border-radius: 20px;
+  text-align: left;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none; 
+  font-size: 20px;
+}
+
+.text-input{
+    width: 350px;
+    height: 200px;
+    resize: none;
+    color: white;
+   background-color: rgba(230, 126, 159, 0.5);
+    border-radius: 20px;
+    text-align: left;
+    padding: 5px;
+    border: 1px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.callGif{
+    height: 350px;
+    width: 400px;
+
+}
+
+.social-icons{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.social-svg{
+    width: 50px;
+    height: 50px;
+    margin-right: 10%;
+    cursor: pointer;
+}

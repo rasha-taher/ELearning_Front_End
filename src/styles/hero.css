@@ -1,0 +1,84 @@
+* {
+  font-family: Itim;
+}
+#hero{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.home-container {
+  background: linear-gradient(
+    180deg,
+    rgba(203, 140, 201, 0.8) 56.25%,
+    rgba(170, 121, 221, 0.51) 100%
+    );
+    height: 100vh;
+}
+.inside-home {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inside-left-home {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+.welcome-message {
+  color: #000;
+  font-size: 30px;
+  display: flex;
+  font-weight: bold;
+}
+
+.w-text {
+  margin-left: 5px;
+  color: #bc4c4a;
+}
+
+.home_text {
+  color: #000;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.buttons-container {
+  display: flex;
+  margin-top: 30px;
+}
+
+.join-btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background: #d36588;
+  color: white;
+  border: none;
+  font-size: 20px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+.all-courses-btn {
+  width: 180px;
+  height: 40px;
+  font-size: 20px;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 3px solid #e67e9f;
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: #af1a49;
+}
+
+.inside-right-home {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
