@@ -1,74 +1,82 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Itim, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Itim, sans-serif;
 }
-.menu{
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
+.menu {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
+  font-family: Itim, sans-serif;
 }
-.logo{
-    font-size: 40px;
-    color: #1F1316;
-    font-family: Itim,sans-serif;
-    cursor: pointer;
+.menu-links {
+  display: flex;
 }
-.menu-ul{
-    padding: 7px;
-    display: flex;
-    list-style: none;
+.logo {
+  font-size: 30px;
+  color: #1f1316;
+  font-family: Itim, sans-serif;
+  cursor: pointer;
+}
+.menu-ul {
+  padding: 7px;
+  display: flex;
+  list-style: none;
 }
 
 .menu-li a {
-    text-decoration: none;
-    color: #1F1316;
-    font-size: 20px;
-    margin-right: 20px;
+  text-decoration: none;
+  color: #1f1316;
+  font-size: 17px;
+  margin-right: 20px;
 }
 
-.menu-li a:hover{
-    color: white;
+.menu-li a:hover {
+  color: white;
 }
 
-.sign-log-button{
-    display: flex;
-    height: 40px;
-    width: 250px;
-    border-radius: 20px;
-    border: 1px solid white;
-    cursor: pointer;
-    font-size: 25px;
-    font-family: Itim;
-    margin-left: 50%;
+.buttons {
+  display: flex;
 }
-.login-bt{
-    width: 50%;
-    height: 100%;
-    background-color: #E67E9F;
-    color: white;
-    border-radius: 20px;
-   padding: 0 auto;
+.common-button {
+  height: 35px;
+  width: 100px;
+  border-radius: 20px;
+  padding: 0 auto;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
 }
-.signin-bt{
-    height: 100%;
-    border-left: 0px;
-    width: 50%;
-    background-color: white;
-    color: #E67E9F;
-    border-radius: 20px;
-    text-align: center;
+.login-bt {
+  background-color: #d36588;
+  color: white;
 }
-.icon{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: white;
-    cursor: pointer;
+.signin-bt {
+  background-color: white;
+  color: #d36588;
 }
-.displays{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add this CSS for the burger menu */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: #1f1316;
+  margin: 4px 0;
 }
