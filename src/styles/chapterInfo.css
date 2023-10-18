@@ -1,0 +1,45 @@
+.chapterInfo-container {
+  width: 100%;
+  height: 100%;
+  background-color: #B56F9B;
+}
+.chapterInfo-header{
+     padding-top: 40px;
+  padding-left: 2%;
+  column-gap: 30%;
+
+}
+.back-arow {
+  color: black !important;
+}
+.text-intro{
+ margin-left:10%;
+margin-top:5%;
+    width: 80%;
+}
+.text-intro p{
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 600;
+  color: white;
+}
+.button-complete
+{
+  margin-left: 50%;
+  margin-bottom:2%;
+  align-items: center;
+  padding: 1%;
+  width:200px;
+  color: white;
+  background-color: #E67E9F;
+}
+@media only screen and (min-width:300px)and (max-width: 640px) {
+ .button-complete{
+   margin-left: 20%;
+
+ } 
+
+.chapterInfo-header {
+  column-gap: 6%;
+}
+}
