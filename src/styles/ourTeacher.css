@@ -11,7 +11,7 @@ margin-bottom: 10px;
 
 .T_title{
     width: 20%;
-    height: 40px;
+    height: 30px;
     margin-top: -15px;
     background-color: white;
     border: 1px solid #E67E9F;
@@ -19,9 +19,10 @@ margin-bottom: 10px;
     text-align: center; 
     justify-content: center; 
     align-items: center;
-    padding-top: 15px;
     font-size: 25px;
     border-radius: 15px;
+    font-size: 25px;
+    padding: 10px;
 }
 
 .teachers{
@@ -39,8 +40,8 @@ margin-bottom: 10px;
 }
 
 .I_teacher{
-    width:200px;
-    height: 200px;
+    width:150px;
+    height: 150px;
     border-radius: 50%;
     margin-top: 5px;
 }
@@ -52,25 +53,29 @@ width:50%;
 font-size: 25px;
 }
 
-.input_appoitment,select{
+.input_appoitment{
     width:100%;
-    height: 50px;
+    height: 35px;
     border-radius: 20px;
     border: 1px solid #E67E9F;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
 }
 
+.input_appoitment select{
+    height: 40px;
+}
 
-h2{
-    font-size: 35px;
+.teacher-name{
+    font-size: 30px;
     color:#E67E9F;
     margin-top: 2px;
     margin-bottom: 5px;
 }
 
-p{
-    font-size: 18px;
+.teacher-des{
+    font-size: 15px;
     margin-top: 2px;
 }
 
@@ -82,15 +87,15 @@ p{
     );
   }
 
-button{
+.book-app{
     background-color: #E67E9F;
     color: white;
-    width: 50%;
-    height: 60px;
+    width: 250px;
+    height: 50px;
     border:0px;
     border-radius: 30px;
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .two_teachers{
@@ -98,8 +103,14 @@ button{
 }
 
 .text{
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     margin-top:20px;
     margin-bottom: 20px;
+  
+}
+
+.app-label{
+    font-size: 20px;
+    font-weight: bold;
 }

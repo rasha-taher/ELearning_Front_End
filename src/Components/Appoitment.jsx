@@ -11,14 +11,14 @@ const Appoitment = () => {
         <div className="ligne"></div>
       </div>
       <form className="BookAppoitment">
-        <label>
+        <label className="app-label">
           Name:<br></br>
           <input className="input_appoitment" type="text"></input>
         </label>
         <br></br>
-        <label>
+        <label className="app-label">
           Teacher:<br></br>
-          <select>
+          <select className="input_appoitment">
             <option>Teacher1</option>
             <option>Teacher2</option>
             <option>Teacher3</option>
@@ -26,22 +26,22 @@ const Appoitment = () => {
           </select>
         </label>
         <br></br>
-        <label>
+        <label className="app-label">
           Date:<br></br>
           <input className="input_appoitment" type="date"></input>
         </label>
         <br></br>
-        <label>
+        <label className="app-label">
           Start Time:<br></br>
-          <input className="input_appoitment" type="text"></input>
+          <input className="input_appoitment" type="time"></input>
         </label>
         <br></br>
-        <label>
+        <label className="app-label">
           End Time:<br></br>
-          <input className="input_appoitment" type="text"></input>
+          <input className="input_appoitment" type="time"></input>
         </label>
         <br></br>
-        <button>Book Appoitment</button>
+        <button className="book-app">Book Appoitment</button>
       </form>
     </div>
   );

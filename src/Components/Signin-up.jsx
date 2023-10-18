@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/signin.css";
-import "../styles/responsive.css";
+import "../styles/F_responsive.css";
 
 function SignIn() {
   const handleSignUpClick = () => {

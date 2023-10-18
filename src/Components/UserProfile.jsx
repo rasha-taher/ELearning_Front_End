@@ -37,10 +37,12 @@ const UserProfile = () => {
               <input type="password" className="user-input"></input>
             </div>
           </div>
+          <div className="button-container">
           <button className="save-button"> Save</button>
-          <div>
+          </div>
+          <div className="table-container">
             <p className="user-info"> Registered Courses</p>
-
+          
             <table class="custom-table">
               <tr>
                 <th>Course Name</th>
@@ -61,6 +63,7 @@ const UserProfile = () => {
                 <td>75</td>
               </tr>
             </table>
+            
           </div>
         </div>
       </div>

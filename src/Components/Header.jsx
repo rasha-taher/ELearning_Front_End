@@ -36,12 +36,12 @@ const Header = () => {
             </li>
           </ul>
         </div>
+      </div>
         <div className="buttons">
           <button className="login-bt common-button">Log in </button>
           <button className="signin-bt common-button">Sign in </button>
         </div>
         <img src={icon} className="icon" />
-      </div>
     </div>
   );
 };

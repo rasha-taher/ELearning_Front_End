@@ -22,25 +22,25 @@ const OurTeacher = () => {
         <div className="two_teachers">
           <div className="teacher">
             <img className="I_teacher" src={teacher1}></img>
-            <h2>Name</h2>
-            <p>Discreption</p>
+            <p className="teacher-name">Name</p>
+            <p className="teacher-des">Description</p>
           </div>
           <div className="teacher">
             <img className="I_teacher" src={teacher2}></img>
-            <h2>Name</h2>
-            <p>Discreption</p>
+            <p className="teacher-name">Name</p>
+            <p className="teacher-des">Description</p>
           </div>
         </div>
         <div className="two_teachers">
           <div className="teacher">
             <img className="I_teacher" src={teacher3}></img>
-            <h2>Name</h2>
-            <p>Discreption</p>
+            <p className="teacher-name">Name</p>
+            <p className="teacher-des">Description</p>
           </div>
           <div className="teacher">
             <img className="I_teacher" src={teacher4}></img>
-            <h2>Name</h2>
-            <p>Discreption</p>
+            <p className="teacher-name">Name</p>
+            <p className="teacher-des">Description</p>
           </div>
         </div>
       </div>
