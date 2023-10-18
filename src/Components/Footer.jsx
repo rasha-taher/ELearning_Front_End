@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div className="footer-div">
             <p> Subscribe To Our News Letter</p>
-            <input type="text" className="contact-input"> 
+            <input type="text" className="subscribe-input"> 
             </input>
             <button className="join-btn"> Suubscribe </button>
       </div>

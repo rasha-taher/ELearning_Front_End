@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/header.css";
 import icon from "../images/user.svg";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div id="menu">
-      <div className="menu">
+      <div className={`menu ${isOpen ? "open" : ""}`}>
         <div>
           <h1 className="logo">MindX</h1>
         </div>
-        <div>
+        <div className="burger" onClick={toggleMenu}>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+        <div className={`menu-links ${isOpen ? "open" : ""}`}>
           <ul className="menu-ul">
             <li className="menu-li">
               <a href="#about">About</a>
@@ -25,15 +36,11 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <button className="sign-log-button">
-            <div className="login-bt displays">Log in </div>
-            <div className="signin-bt displays">Sign in </div>
-          </button>
+        <div className="buttons">
+          <button className="login-bt common-button">Log in </button>
+          <button className="signin-bt common-button">Sign in </button>
         </div>
-        <div>
-          <img src={icon} className="icon" />
-        </div>
+        <img src={icon} className="icon" />
       </div>
     </div>
   );

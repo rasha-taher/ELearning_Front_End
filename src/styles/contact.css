@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     font-family: Itim;
-    margin-bottom: 5%;
+
+    margin-top: 5%;
 }
 
 .inside-contact-container {
@@ -47,6 +48,10 @@
   font-size: 20px;
 }
 
+
+.contact-input:focus{
+    border: 1px solid white;
+}
 .text-input{
     width: 350px;
     height: 200px;
@@ -79,4 +84,8 @@
     height: 50px;
     margin-right: 10%;
     cursor: pointer;
+}
+
+.contact-side{
+    margin-bottom: 50px;
 }
