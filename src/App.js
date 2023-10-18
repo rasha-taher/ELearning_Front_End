@@ -1,12 +1,12 @@
-import HomePage from "./HomePage";
-//import ProfilePage from "./ProfilePage";
+//import HomePage from "./HomePage";
+import ProfilePage from "./ProfilePage";
 import './styles/responsive.css'
 function App() {
   return (
     <div className="App">
-      {/* <ProfilePage/>*/}
+       <ProfilePage/>
       
-      <HomePage/>
+      {/*<HomePage/>*/}
     </div>
   );
 }
