@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/signin.css";
+import "../styles/responsive.css";
+
 function SignIn() {
   const handleSignUpClick = () => {
     const container = document.getElementById("container");
@@ -25,21 +27,38 @@ function SignIn() {
             <input type="password" placeholder="Password" />
             <br />
             <button>Sign Up</button>
+            <div className="sign">
+              {" "}
+              <p>
+                Click here from
+                <a className="Sign" onClick={handleSignInClick}>
+                  Sign In
+                </a>
+              </p>
+            </div>
           </form>
         </div>
         <div className="form-container sign-in-container">
-          <h1>MindX</h1>
+          <h1 className="mind">MindX</h1>
           <form action="#">
             <h1>Sign in</h1>
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />
             <a href="#">Forgot your password?</a>
             <button>Sign In</button>
+            <div className="sign">
+              <p>
+                Click here from
+                <a className="Sign" onClick={handleSignUpClick}>
+                  Sign Up
+                </a>
+              </p>
+            </div>
           </form>
         </div>
         <div className="overlay-container">
           <div className="overlay">
-            <h1>MindX</h1>
+            <h1 className="mind">MindX</h1>
             <div className="overlay-panel overlay-left">
               <h1>Welcome Back!</h1>
               <p>

@@ -1,12 +1,15 @@
-//import HomePage from "./HomePage";
-import ProfilePage from "./ProfilePage";
-import './styles/responsive.css'
+// import HomePage from "./HomePage";
+//import ProfilePage from "./ProfilePage";
+//import SignIn from "./Components/Signin-up.jsx";
+import Appoitments from "./Appoitments.js";
+
 function App() {
   return (
     <div className="App">
-       <ProfilePage/>
-      
-      {/*<HomePage/>*/}
+      {/* <HomePage/> */}
+      {/*<ProfilePage />*/}
+      {/*<SignIn />*/}
+      <Appoitments />
     </div>
   );
 }
