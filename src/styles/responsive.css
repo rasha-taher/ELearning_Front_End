@@ -3,10 +3,17 @@
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+    
+  }
+  .logo-class{
+    display: none;
   }
   .burger {
     display: flex;
+    padding-top: 20px;
+    margin-left:-40px ;
   }
+ 
   .menu-ul {
     flex-direction: column;
   }
@@ -42,7 +49,7 @@
     margin: 10px 0;
   }
 
-  .icon {
+  .profile {
     display: none;
   }
   .inside-home {
@@ -80,9 +87,6 @@
   .footer-div {
     width: 100%;
   }
-  .buttons {
-    align-items: flex-end;
-  }
 
   .contact-input {
     width: 300px;
@@ -108,11 +112,23 @@
     flex-direction: row;
     justify-content:space-around ;
   }
-  .buttons{
-    flex-direction: column;
-    padding-top: 30px;
+ 
+  .buttons {
+    padding-top: 38px;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-left: 50px;
   }
   .signin-bt{
     margin-top: -18px;
+  }
+  .pink-box {
+    background-color: #e67e9f;
+    width: 75px;
+    height: 75px;
+  }
+  .svgs {
+    height: 55px;
+    width: 55px;
   }
 }

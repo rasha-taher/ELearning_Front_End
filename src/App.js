@@ -1,4 +1,4 @@
-// import HomePage from "./HomePage";
+import HomePage from "./HomePage";
 import ProfilePage from "./ProfilePage";
 //import SignIn from "./Components/Signin-up.jsx";
 import Appoitments from "./Appoitments.js";
@@ -7,8 +7,8 @@ import './styles/responsive.css'
 function App() {
   return (
     <div className="App">
-      {/* <HomePage/> */}
-      <ProfilePage />
+      <HomePage/>
+      {/* <ProfilePage /> */}
       {/* <SignIn /> */}
      {/* <Appoitments /> */}
     </div>

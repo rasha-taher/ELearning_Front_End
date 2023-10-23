@@ -11,8 +11,9 @@ const Header = () => {
 
   return (
     <div id="menu">
+      <div className="menu-container">
       <div className={`menu ${isOpen ? "open" : ""}`}>
-        <div>
+        <div className="logo-class">
           <h1 className="logo">MindX</h1>
         </div>
         <div className="burger" onClick={toggleMenu}>
@@ -36,12 +37,17 @@ const Header = () => {
             </li>
           </ul>
         </div>
+
       </div>
         <div className="buttons">
           <button className="login-bt common-button">Log in </button>
           <button className="signin-bt common-button">Sign in </button>
         </div>
+        <div className="profile"> 
         <img src={icon} className="icon" />
+        </div>
+        
+    </div>
     </div>
   );
 };

@@ -11,6 +11,7 @@ const PopularCoursePage = () => {
         <PopularCourses image={image} />
         <PopularCourses image={image} />
         <PopularCourses image={image} />
+         <PopularCourses image={image} />
       </div>
       </div>
 
