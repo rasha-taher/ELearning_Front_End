@@ -1,11 +1,12 @@
 import React from 'react'
 import "../styles/QuestionChapterInfo.css"
-const QuestionChapterInfo = () => {
+const QuestionChapterInfo = ({number,question}) => {
   return (
     <div className="d-flex flex-column question-container">
       <div className="d-flex flex-row column-gap-5">
-        <div>Question 1</div>
-        <div>How to export a mockup in Figma?</div>
+        <div>{number}</div>
+        <div>{question}</div>
+        
       </div>
       <div className='d-flex flex-row solution'>
         <input type="text" className="rounded-pill input-solution" />

@@ -22,39 +22,9 @@
   height: 100%;
   background-color: #f2e8f2;
 }
-.learning-course-img {
-  width: 85%;
-  height: 3%;
-  border-radius: 75px;
-}
-.clearfix {
-  margin-top: 10px;
-  width: 80%;
-  height: 20px;
-  border-radius: 20px;
-  background-color: white;
-  display: block;
-}
-.score-level {
-  width: 50%;
-  height: 20px;
-  border-radius: 20px;
-  border-color: linear-gradient(
-      0deg,
-      rgba(170, 121, 221, 0.51),
-      rgba(170, 121, 221, 0.51)
-    ),
-    linear-gradient(0deg, rgba(230, 126, 159, 0.33), rgba(230, 126, 159, 0.33)),
-    linear-gradient(0deg, rgba(242, 10, 24, 0.22), rgba(242, 10, 24, 0.22));
 
-  background: linear-gradient(
-      0deg,
-      rgba(170, 121, 221, 0.51),
-      rgba(170, 121, 221, 0.51)
-    ),
-    linear-gradient(0deg, rgba(230, 126, 159, 0.33), rgba(230, 126, 159, 0.33)),
-    linear-gradient(0deg, rgba(242, 10, 24, 0.22), rgba(242, 10, 24, 0.22));
-}
+
+
 .learning-content-text {
   column-gap: 62%;}
 .learning-content-text-one {
@@ -74,4 +44,72 @@
 }
 .learning-content-text {
   column-gap: 3%;}
+}
+/* new */
+.learning-side{
+  
+  grid-template-columns: 3;
+  background-color:#D5A4D5;
+}
+.learning-title{
+  color: #e67e9f;
+  padding-top: 5px;
+}
+.clearfix {
+
+  margin-top: 10px;
+  width: 60%;
+  height: 20px;
+  margin-left: 77px;
+  border-radius: 20px;
+  background-color: white;
+  display: block;
+}
+.score-level {
+  width:50%;
+  height: 20px;
+  border-radius: 20px;
+  border-color: linear-gradient(
+      0deg,
+      rgba(170, 121, 221, 0.51),
+      rgba(170, 121, 221, 0.51)
+    ),
+    linear-gradient(0deg, rgba(230, 126, 159, 0.33), rgba(230, 126, 159, 0.33)),
+    linear-gradient(0deg, rgba(242, 10, 24, 0.22), rgba(242, 10, 24, 0.22));
+
+  background: linear-gradient(
+      0deg,
+      rgba(170, 121, 221, 0.51),
+      rgba(170, 121, 221, 0.51)
+    ),
+    linear-gradient(0deg, rgba(230, 126, 159, 0.33), rgba(230, 126, 159, 0.33)),
+    linear-gradient(0deg, rgba(242, 10, 24, 0.22), rgba(242, 10, 24, 0.22));
+}
+.learning-course-img {
+  width: 40%;
+  height: 30%;
+  border-radius: 75px;
+}
+.learning-container{
+  grid-template-columns: 8;
+  background-color: white;
+
+}
+.sectionSideBar{
+display: grid;
+grid-template-columns: repeat(12,1fr);
+ height:100vh;
+}
+.learning-side{
+    grid-column:1/4;
+
+   
+    
+}
+.contain{
+  grid-column:4/13;
+    background-color: white;
+}
+.learning-logo-name{
+  column-gap: 120px;
 }

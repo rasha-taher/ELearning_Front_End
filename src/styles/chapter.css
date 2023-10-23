@@ -1,5 +1,6 @@
 .card{
-    margin-left: 10%;
+    margin-left: 13px;
+    margin-top: 20px;
     --bs-card-spacer-y: 1rem;
     --bs-card-spacer-x: 1rem;
     --bs-card-title-spacer-y: 0.5rem;
@@ -23,7 +24,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 80%;
+    width: fit-content;
     height: var(--bs-card-height);
     color: var(--bs-body-color);
     word-wrap: break-word;
@@ -35,7 +36,7 @@
 }
 .card-body{
     height: 60px;
-    background-color: #EEC5D7;
+   
 }
 .chapter-text{
     text-align: end;
