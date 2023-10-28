@@ -35,6 +35,9 @@ const Header = () => {
             <li className="menu-li">
               <a href="#contact"> Contact Us </a>
             </li>
+            <li className="menu-li">
+              <a href="#"> Become A Teacher </a>
+            </li>
           </ul>
         </div>
 
