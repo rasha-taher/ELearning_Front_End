@@ -5,7 +5,6 @@ import myGif from '../images/ams.gif'
 const Hero = () => {
   return (
     <div className="home-container">
-      <Header />
       <div id="hero">
       <div className="inside-home">
         <div className="inside-left-home">

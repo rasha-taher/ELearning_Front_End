@@ -6,9 +6,8 @@ import image from "../images/image.jpg";
 const UserProfile = () => {
   return (
     <div>
-      <div className="home-container">
         <Header />
-      </div>
+     
       <div className="user-container">
         <img src={image} className="user-image"></img>
         <p className="user-info"> User's ID</p>

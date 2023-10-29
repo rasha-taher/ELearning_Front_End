@@ -18,7 +18,7 @@ const BecomeATeacher = () => {
             </div>
             <div className="apply-form">
                 <div>
-          <p className="user-info">Name: </p>
+          <p className="user-info"> Full Name: </p>
               <input type="text" className="user-input f "></input>
               </div>
               <div>
@@ -26,7 +26,7 @@ const BecomeATeacher = () => {
               <input type="text" className="user-input f"></input>
               </div>
               <div>
-              <p className="user-info">Tell Us Why Join Us!: </p>
+              <p className="user-info">Tell Us Why Join Us!</p>
               <textarea type="text" className='text-input' />
               </div>
               <div>

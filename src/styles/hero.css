@@ -1,13 +1,10 @@
-* {
-  font-family: Itim;
-}
 #hero{
   display: flex;
   justify-content: center;
   align-items: center; 
 }
 .home-container {
-  background: linear-gradient(
+  background-color: linear-gradient(
     180deg,
     rgba(203, 140, 201, 0.8) 56.25%,
     rgba(170, 121, 221, 0.51) 100%
