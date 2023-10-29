@@ -3,6 +3,9 @@
   padding: 0;
   font-family: Itim, sans-serif;
 }
+#menu{
+  background: rgba(203, 140, 201, 0.8) ;
+}
 .menu-container{
   display: flex;
   justify-content: space-between;

@@ -1,9 +1,4 @@
-
-* {
-	box-sizing: border-box;
-}
-
-body {
+.signin {
 	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
@@ -18,7 +13,7 @@ body {
 display: none;
 }
 
-h1 {
+.cr-h1 {
 	font-weight: bold;
 	margin: 0;
 }
@@ -27,7 +22,7 @@ h2 {
 	text-align: center;
 }
 
-p {
+.sign-p {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -46,7 +41,7 @@ a {
 	margin: 15px 0;
 }
 
-button {
+.btn-signin {
 	border-radius: 20px;
 	border: 1px solid #E67E9F;
 	background-color: #E67E9F;
@@ -59,20 +54,20 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-button:active {
+.btn-signin:active {
 	transform: scale(0.95);
 }
 
-button:focus {
+.btn-signin:focus {
 	outline: none;
 }
 
-button.ghost {
+.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
 
-form {
+.sign-form {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -83,7 +78,7 @@ form {
 	text-align: center;
 }
 
-input {
+.sign-input {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
@@ -216,10 +211,10 @@ h1{
 	transform: translateX(20%);
 }
 
-button:hover{
+.btn-signin:hover{
     transform:scale(1.5);
 }
-button {
+.btn-signin {
     cursor: pointer;
 }
 

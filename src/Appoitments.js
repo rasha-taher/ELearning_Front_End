@@ -6,9 +6,7 @@ import Footer from "./Components/Footer";
 function Appoitments() {
   return (
     <div className="Appoitments">
-      <div className="home-container">
         <Header />
-      </div>
       <OurTeacher />
       <Appoitment />
       <Footer />
