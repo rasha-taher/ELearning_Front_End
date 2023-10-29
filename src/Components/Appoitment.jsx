@@ -17,6 +17,11 @@ const Appoitment = () => {
         </label>
         <br></br>
         <label className="app-label">
+          Student Name:<br></br>
+          <input className="input_appoitment" type="text"></input>
+        </label>
+        <br></br>
+        <label className="app-label">
           Teacher:<br></br>
           <select className="input_appoitment">
             <option>Teacher1</option>
@@ -24,6 +29,11 @@ const Appoitment = () => {
             <option>Teacher3</option>
             <option>Teacher4</option>
           </select>
+        </label>
+        <br></br>
+        <label className="app-label">
+          Status:<br></br>
+          <input className="input_appoitment" type="text"></input>
         </label>
         <br></br>
         <label className="app-label">

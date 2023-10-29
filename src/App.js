@@ -8,11 +8,11 @@ import BecomeATeacher from "./Components/BecomeATeacher";
 function App() {
   return (
     <div className="App">
-      <BecomeATeacher />
+      {/*<BecomeATeacher />*/}
       {/* <HomePage/> */}
       {/* <ProfilePage /> */}
       {/* <SignIn /> */}
-      {/* <Appoitments /> */}
+      <Appoitments />
     </div>
   );
 }
