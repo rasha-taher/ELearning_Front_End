@@ -44,11 +44,11 @@ const Header = () => {
           </div>
         </div>
         <div className="buttons">
-          <Link to="/SignIn">
+          <Link to="/SignIn#sign-up-container">
             {" "}
             <button className="login-bt common-button"> Sign In </button>
           </Link>
-          <Link to="/SignIn/#signUp">
+          <Link to="/SignIn#sign-in-container">
             {" "}
             <button className="signin-bt common-button"> Log In </button>
           </Link>

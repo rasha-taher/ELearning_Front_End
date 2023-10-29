@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header";
+import { Link } from "react-router-dom";
 import "../styles/hero.css";
 import myGif from '../images/ams.gif'
 const Hero = () => {
@@ -17,7 +17,7 @@ const Hero = () => {
             Learn New Skills With Our Experts Any Time, AnyWhere
           </p>
           <div className="buttons-container">
-            <button className="join-btn"> Join Us</button>
+          <Link to="/SignIn">  <button className="join-btn"> Join Us</button></Link>
             <button className="all-courses-btn "> See all Courses</button>
           </div>
         </div>
