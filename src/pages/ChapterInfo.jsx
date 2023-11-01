@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/chapterInfo.css";
 import QuestionChapterInfo from "../Components/QuestionChapterInfo";
 
-const ChapterInfo = ({key, title, chapterContent }) => {
+const ChapterInfo = ({ title, chapterContent }) => {
   console.log({title},{chapterContent})
 
   return (
