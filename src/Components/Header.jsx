@@ -26,7 +26,7 @@ const Header = () => {
           <div className={`menu-links ${isOpen ? "open" : ""}`}>
             <ul className="menu-ul">
               <li className="menu-li">
-                <Link to="/About">About</Link>
+                <Link to="/">About</Link>
               </li>
               <li className="menu-li">
                 <Link href="#">Categories </Link>
