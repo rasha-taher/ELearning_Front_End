@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/ourTeacher.css";
 import "../styles/F_responsive.css";
 
@@ -10,35 +10,38 @@ const Appoitment = () => {
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
   const [student_id, setStudentID] = useState("");
-  const [teacher_id, setTeacherID] = useState("");
-  const [teachername, setTeacherName] = useState("");
+  const [teacher_id, setTeacherID] = useState(""); // Store teacher_id
+  const [teachers, setTeachers] = useState([]); // Store a list of teachers
+
+  useEffect(() => {
+    const fetchTeachers = async () => {
+      try {
+        const teacherResponse = await fetch(
+          "http://localhost:5000/user/getTeachers"
+        );
+        if (teacherResponse.ok) {
+          const teacherData = await teacherResponse.json();
+          setTeachers(teacherData.data);
+        }
+      } catch (error) {
+        console.error("Error fetching teachers:", error);
+      }
+    };
+    fetchTeachers();
+  }, []);
 
   const handleAddAppoitment = async () => {
-    // Call the functions to get student_id and teacher_id based on name
     const studentIdResponse = await fetch(
       `http://localhost:5000/appoitment/getStudentId/${name}`
-    );
-    const teacherIdResponse = await fetch(
-      `http://localhost:5000/appoitment/getTeacherId/${teachername}`
     );
 
     if (studentIdResponse.ok) {
       const studentData = await studentIdResponse.json();
       setStudentID(studentData.data.student_id);
     } else {
-      // Handle the case where there is no student with this name
       window.alert("No student with this name.");
       return;
     }
-
-    if (teacherIdResponse.ok) {
-      const teacherData = await teacherIdResponse.json();
-      setTeacherID(teacherData.data.teacher_id);
-    } else {
-      window.alert("No teacher with this name.");
-      return;
-    }
-
     const appoitmentBody = {
       appoitment_name,
       appoitment_date,
@@ -57,7 +60,7 @@ const Appoitment = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(appoitmentBody), // Corrected variable name
+        body: JSON.stringify(appoitmentBody),
       });
 
       if (response.ok) {
@@ -77,7 +80,7 @@ const Appoitment = () => {
     <div className="Appoitment">
       <div className="start">
         <div className="ligne"></div>
-        <div className="T_title">Book Appoitment</div>
+        <div className="T_title">Book Appointment</div>
         <div className="ligne"></div>
       </div>
       <form className="BookAppoitment">
@@ -101,11 +104,17 @@ const Appoitment = () => {
         <br></br>
         <label className="app-label">
           Teacher:<br></br>
-          <input
-            type="text"
+          <select
             className="input_appoitment"
-            onChange={(e) => setTeacherName(e.target.value)}
-          />
+            onChange={(e) => setTeacherID(e.target.value)}
+          >
+            <option value="">Select a teacher</option>
+            {teachers.map((teacher) => (
+              <option key={teacher.id} value={teacher.id}>
+                {teacher.name}
+              </option>
+            ))}
+          </select>
         </label>
         <br></br>
         <label className="app-label">
@@ -145,7 +154,7 @@ const Appoitment = () => {
         </label>
         <br></br>
         <button className="book-app" onClick={handleAddAppoitment}>
-          Book Appoitment
+          Book Appointment
         </button>
       </form>
     </div>
