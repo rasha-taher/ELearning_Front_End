@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Itim, sans-serif;
+}
+#menu{
+  background: rgba(203, 140, 201, 0.8) ;
+}
+.menu-container{
+  display: flex;
+  justify-content: space-between;
+}
+.menu {
+  display: flex;
+  padding: 20px;
+  font-family: Itim, sans-serif;
+}
+.profile{
+  padding: 20px;
+}
+.menu-links {
+  display: flex;
+  margin-left: 50px;
+}
+.logo {
+  font-size: 30px;
+  color: #1f1316;
+  font-family: Itim, sans-serif;
+  cursor: pointer;
+}
+.menu-ul {
+  padding: 7px;
+  display: flex;
+  list-style: none;
+}
+
+.menu-li a {
+  text-decoration: none;
+  color: #1f1316;
+  font-size: 17px;
+  margin-right: 20px;
+}
+
+.menu-li a:hover {
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  padding: 20px;
+}
+.common-button {
+  height: 35px;
+  width: 100px;
+  border-radius: 20px;
+  padding: 0 auto;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.login-bt {
+  background-color: #d36588;
+  color: white;
+}
+.signin-bt {
+  background-color: white;
+  color: #d36588;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add this CSS for the burger menu */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: #1f1316;
+  margin: 4px 0;
+}

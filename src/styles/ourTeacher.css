@@ -1,0 +1,108 @@
+.start{
+display: flex;
+margin-bottom: 10px;
+}
+
+.ligne{
+    width: 40%;
+    height: 20px;
+    background-color:  #E67E9F;
+}
+
+.T_title{
+    width: 20%;
+    height: 30px;
+    margin-top: -15px;
+    background-color: white;
+    border: 1px solid #E67E9F;
+    color: #E67E9F;
+    text-align: center; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 25px;
+    border-radius: 15px;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.teachers{
+    display: flex;
+    width:100%;
+    justify-content: center;
+}
+
+.teacher{
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+.I_teacher{
+    width:150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+.BookAppoitment{
+margin-left: 25%;
+justify-content: center;
+width:50%;
+font-size: 25px;
+}
+
+.input_appoitment{
+    width:100%;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid #E67E9F;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.input_appoitment select{
+    height: 40px;
+}
+
+.teacher-name{
+    font-size: 30px;
+    color:#E67E9F;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+.teacher-des{
+    font-size: 15px;
+    margin-top: 2px;
+}
+
+.book-app{
+    background-color: #E67E9F;
+    color: white;
+    width: 250px;
+    height: 50px;
+    border:0px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.two_teachers{
+    display: flex;
+}
+
+.text{
+    font-size: 20px;
+    text-align: center;
+    margin-top:20px;
+    margin-bottom: 20px;
+  
+}
+
+.app-label{
+    font-size: 20px;
+    font-weight: bold;
+}

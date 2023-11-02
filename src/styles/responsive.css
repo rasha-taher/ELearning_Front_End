@@ -1,0 +1,135 @@
+@media screen and (min-width: 300px) and (max-width: 645px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    
+  }
+  .logo-class{
+    display: none;
+  }
+  .burger {
+    display: flex;
+    padding-top: 20px;
+    margin-left:-40px ;
+  }
+ 
+  .menu-ul {
+    flex-direction: column;
+  }
+  .menu-li a:hover {
+    color: #c03561;
+  }
+  .menu-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: left;
+  }
+  .menu-links.open {
+    display: flex;
+    width: 250px;
+  }
+
+  .menu-li {
+    margin: 3px 0;
+  }
+
+  .menu-li a {
+    font-size: 20px;
+  }
+
+  .sign-log-button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .profile {
+    display: none;
+  }
+  .inside-home {
+    flex-direction: column;
+  }
+  .inside-left-home {
+    width: 100%;
+  }
+  .inside-right-home img {
+    height: 300px;
+    width: 300px;
+  }
+
+  .welcome-message {
+    font-size: 25px;
+  }
+  .home_text {
+    font-size: 40px;
+  }
+  .about-title {
+    font-size: 40px;
+  }
+  .inside-contact-container {
+    flex-direction: column;
+  }
+  .callGif {
+    display: none;
+  }
+  .contact-side {
+    width: 100%;
+  }
+  .footer-container {
+    flex-direction: column;
+  }
+  .footer-div {
+    width: 100%;
+  }
+
+  .contact-input {
+    width: 300px;
+    height: 30px;
+  }
+  .text-input {
+    width: 300px;
+    height: 150px;
+  }
+  
+  .row {
+    flex-direction: column;
+    margin-left: 25px;
+  }
+  .table-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #menu{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around ;
+  }
+ 
+  .buttons {
+    padding-top: 38px;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-left: 50px;
+  }
+  .signin-bt{
+    margin-top: -18px;
+  }
+  .pink-box {
+    background-color: #e67e9f;
+    width: 75px;
+    height: 75px;
+  }
+  .svgs {
+    height: 55px;
+    width: 55px;
+  }
+}
