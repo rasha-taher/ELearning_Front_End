@@ -1,12 +1,12 @@
 .inside-catg-container{
     display: flex;
-    flex-direction: column;
+ 
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .categories-container{
     display: flex;
-    flex-direction: column;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -16,21 +16,28 @@
     margin-bottom: 50px;
 }
 .categories-text{
-font-size: 40px;
-color: #e67e9f;
-font-weight: bold;
+    font-size: 40px;
+    color: #e67e9f;
+    font-weight: bold;
 }
 .catg-div{
     height: 500px;
-    width: 500px;
+    width: 400px;
+    margin-left: 15px;
     border: 4px solid #e67e9f;
     border-left: 15px solid #da658a;
     border-radius: 20px;
+    margin-bottom: 50px;
+}
+.inside-catg-div{
+    display: flex;
+    font-size: 25px;
 }
 
 .catg-title{
     font-weight: 20px;
     font-size: 25px;
+    
 }
 .image{
     width:400px;
@@ -51,7 +58,7 @@ font-weight: bold;
 
 .enrol-btn{
     width: 100px;
-    height: 30px;
+    height: 40px;
     color: white;
     background-color: #d36588;
     padding: auto;

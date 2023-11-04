@@ -27,7 +27,7 @@ const Header = () => {
             <ul className="menu-ul">
             
               <li className="menu-li">
-                <Link href="/Categories"> Categories </Link>
+                <Link to="/Categories"> Categories </Link>
               </li>
               <li className="menu-li">
                 <Link to="/Appoitments"> Book Appointment </Link>
