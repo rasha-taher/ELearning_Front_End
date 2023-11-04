@@ -3,10 +3,8 @@ import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
 import "../styles/categories.css";
-import frontendImage from "../images/frontend-development-tools.png";
-import backendImage from "../images/backend-image.avif"; // Assuming you have a backend image
+import "../styles/responsive.css";
 import { Link } from "react-router-dom";
-// ... (previous code)
 
 const Categories = () => {
   const [languages, setLanguages] = useState([]);

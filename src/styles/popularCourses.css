@@ -7,21 +7,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
 .popularCourses{
-    width: 33.33%;
-    display:flex ;
+    width: 50%;
+    text-align: center;
+    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     cursor: pointer;
-  
 }
 .popular-course-image{
     width: 200px;
     height: 200px;
+    border-radius: 15px;
+    margin-bottom: 10px;
 }
 .popular-courses-title{
     font-size: 25px;
@@ -32,5 +33,9 @@
 .popular-course-text{
     font-size: 15px;
     color: #1F1316;
+    width: 50%;
+}
+.pop-2-course{
+    display: flex;
     width: 50%;
 }
