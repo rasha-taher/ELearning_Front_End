@@ -1,57 +1,77 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
 import "../styles/userProfile.css";
 import image from "../images/image.jpg";
-import axios from "axios";
-import { useState, useEffect } from "react";
 
 const UserProfile = () => {
-
   const [userData, setUserData] = useState({
-    id:"",
+    id: "",
     name: "",
     email: "",
     password: "",
   });
+
   useEffect(() => {
-    const userEmail = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("userEmail"))
-      .split("=")[1];
+    const userEmailCookie = document.cookie.split(";").find((row) => row.startsWith("userEmail"));
 
-    const fetchData = async () => {
-      try {
-        const response = await axios.post(
-          "http://localhost:5000/student/getUserByEmail",
-          {
-            email: userEmail,
+    if (userEmailCookie) {
+      const userEmail = userEmailCookie.split("=")[1];
+      const fetchData = async () => {
+        try {
+          const response = await axios.post(
+            "http://localhost:5000/student/getUserByEmail",
+            {
+              email: userEmail,
+            }
+          );
+
+          if (response.data.success) {
+            const user = response.data.data[0];
+            if (user) {
+              setUserData(user);
+            } else {
+              console.error("User data not found in response");
+            }
+          } else {
+            console.error("Error:", response.data.error);
           }
-        );
-
-        if (response.data.success) {
-          setUserData(response.data.data[0]);
-        } else {
-          console.error("Error:", response.data.error);
+        } catch (error) {
+          console.error("Error:", error);
         }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+      };
+     
 
-    fetchData();
+      fetchData();
+    } else {
+      console.error("User email cookie not found");
+    }
   }, []);
+  
+  const updateUserData = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/updateUser",  // Adjust the URL as needed
+        userData
+      );
 
+      if (response.data.success) {
+        console.log("User data updated successfully.");
+      } else {
+        console.error("Error:", response.data.error);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <div>
       <Header />
-
       <div className="user-container">
-        <img src={image} className="user-image"></img>
+        <img src={image} className="user-image" alt="User" />
         <p className="user-info"> User's ID: {userData.id}</p>
-        <p className="user-info">
-          {" "}
-          Total Score : <p> 1000</p>{" "}
-        </p>
+        <p className="user-info"> Total Score : <p> 1000</p> </p>
         <div className="change-info-container">
           <div className="row">
             <div>
@@ -96,22 +116,13 @@ const UserProfile = () => {
               )}
             </div>
 
-            <div>
-              <p className="user-info">Password: </p>
-              {userData && (
-                <input
-                  type="password"
-                  className="user-input"
-                  value={userData.password || ""}
-                  onChange={(e) =>
-                    setUserData({ ...userData, password: e.target.value })
-                  }
-                />
-              )}
-            </div>
+        
           </div>
           <div className="button-container">
-            <button className="save-button"> Save</button>
+         
+        <button className="save-button" onClick={updateUserData}>
+          Save
+        </button>
           </div>
           <div className="table-container">
             <p className="user-info"> Registered Courses</p>
