@@ -16,16 +16,14 @@ const UserProfile = () => {
   useEffect(() => {
     const userEmailCookie = document.cookie.split(";").find((row) => row.startsWith("userEmail"));
 
-    if (userEmailCookie) {
-      const userEmail = userEmailCookie.split("=")[1];
-      const fetchData = async () => {
-        try {
-          const response = await axios.post(
-            "http://localhost:5000/student/getUserByEmail",
-            {
-              email: userEmail,
-            }
-          );
+    const fetchData = async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/student/getUserByEmail",
+          {
+            email: userEmail,
+          }
+        );
 
           if (response.data.success) {
             const user = response.data.data[0];

@@ -3,7 +3,7 @@ import "../styles/chapterInfo.css";
 import QuestionChapterInfo from "../Components/QuestionChapterInfo";
 
 const ChapterInfo = ({ title, chapterContent, question1, question2, question3 }) => {
-  const questions =[ {"Question1":question1,"Question2": question2,"Question3": question3 }]
+  const questions =[question1,question2,question3]
   return (
     <div className="d-flex  flex-column chapterInfo-container">
       <div className="chapterInfo-header d-flex flex-row">
@@ -16,7 +16,7 @@ const ChapterInfo = ({ title, chapterContent, question1, question2, question3 })
         <div className=" chapterInfoTitle fs-3">Test Your knowlede</div>
         {questions.map((info) => (
           
-          <QuestionChapterInfo number={ info.key} question={info.value} />))}
+          <QuestionChapterInfo  question={info} />))}
 
         <button className=" rounded-pill button-complete">
           Course Complete

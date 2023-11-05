@@ -1,10 +1,10 @@
 import React from 'react'
 import "../styles/QuestionChapterInfo.css"
-const QuestionChapterInfo = ({number,question}) => {
+const QuestionChapterInfo = ({question}) => {
   return (
     <div className="d-flex flex-column question-container">
       <div className="d-flex flex-row column-gap-5">
-        <div>{number}</div>
+        <div>Question</div>
         <div>{question}</div>
         
       </div>

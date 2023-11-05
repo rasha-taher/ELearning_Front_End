@@ -1,15 +1,46 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
 import QuestionExam from '../Components/QuestionExam';
-import "../styles/test.css"
+import "../styles/test.css";
+import axios from "axios";
 
-const Test = () => {
+const Test = ({ idLanguage }) => {
+  const [quiz, setQuiz] = useState([]);
+console.log("idLang",idLanguage)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res1 = await axios.get(
+          `http://127.0.0.1:8000/quiz/getQuizByLanguageId/${idLanguage}`
+        );
+
+        console.log(res1.data.data);
+        setQuiz(res1.data.data);
+
+        console.log(quiz, "quiz");
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="d-flex flex-column align-items-center">
       <h1 className="text-align-center">Quiz figma Design</h1>
-
-      <QuestionExam />
-          <button
-              type='button'
+      {quiz &&
+        quiz.map((quest) => (
+          <QuestionExam
+            id={quest.quiz_id}
+            grade={quest.grade}
+            quiz={quest.quiz}
+            option1={quest.option1}
+            option2={quest.option2}
+            option3={quest.option3}
+            option4={quest.option4}
+          />
+        ))}
+      <button
+        type="button"
         className="rounded-pill test-submit"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
@@ -67,6 +98,6 @@ const Test = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Test

@@ -8,12 +8,16 @@ import { Link } from "react-router-dom";
 
 const Categories = () => {
   const [languages, setLanguages] = useState([]);
+  const saveLanguageId = async (language) => {
+        localStorage.setItem("objectIdLanguage", language);
+    
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/language/getLanguages"
+          "http://localhost:8000/language/getLanguages"
         );
         console.log(response.data.data);
         setLanguages(response.data.data);
@@ -40,11 +44,12 @@ const Categories = () => {
 
               {languages[categoryTitle].map((language) => (
                 <div key={language.language_id}  className="inside-catg-div">
+     
                   <div className="div1">
                   <p>{language.language_name}</p>
                   </div>
                   <div className="div1">
-                  <Link to ="/learning"><button className="enrol-btn">Enroll</button></Link>
+                  <Link to ="/learning"><button className="enrol-btn" onClick={() => saveLanguageId(language.language_id)}>Enroll</button></Link>
                   </div>
                 </div>
               ))}
