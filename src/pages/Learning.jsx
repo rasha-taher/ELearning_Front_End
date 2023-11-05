@@ -12,15 +12,17 @@ import Footer from "../Components/Footer";
 const Learning = () => {
   const [data, setData] = useState(null);
   const [chapter, setChapter] = useState([]);
+  let [languageId,setLanguageId]=useState("")
 
   useEffect(() => {
     const fetchData = async () => {
+       languageId = localStorage.getItem("objectIdLanguage");
       try {
         const res1 = await axios.get(
-          "http://localhost:8000/language/getLanguageById/11"
+          `http://localhost:8000/language/getLanguageById/${languageId}`
         );
         const res2 = await axios.get(
-          "http://localhost:8000/chapter/getAllChapter"
+          `http://localhost:8000/chapter/getChapterByLanguageId/${languageId}`
         );
 
         setData(res1.data.data);
