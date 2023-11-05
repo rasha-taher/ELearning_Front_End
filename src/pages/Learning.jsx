@@ -15,10 +15,10 @@ const Learning = () => {
     const fetchData = async () => {
       try {
         const res1 = await axios.get(
-          "http://localhost:8000/language/getLanguageById/11"
+          "http://127.0.0.1:8000/language/getLanguageById/110"
         );
         const res2 = await axios.get(
-          "http://localhost:8000/chapter/getAllChapter"
+          "http://127.0.0.1:8000/chapter/getAllChapter"
         );
 
         setData(res1.data.data);
@@ -33,7 +33,6 @@ const Learning = () => {
 
     fetchData();
   }, []);
-  
 
   return (
     <div className="sectionSideBar">

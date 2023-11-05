@@ -6,9 +6,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const UserProfile = () => {
-
   const [userData, setUserData] = useState({
-    id:"",
+    id: "",
     name: "",
     email: "",
     password: "",
@@ -22,7 +21,7 @@ const UserProfile = () => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/student/getUserByEmail",
+          "http://127.0.0.1:8000/student/getUserByEmail",
           {
             email: userEmail,
           }
