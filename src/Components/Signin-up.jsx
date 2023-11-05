@@ -3,10 +3,9 @@ import "../styles/signin.css";
 import "../styles/F_responsive.css";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 function SignIn() {
-  const url="http://localhost:8000"
+  const url="http://localhost:5000"
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,10 +44,8 @@ function SignIn() {
     const data = await response.json();
 
     if (data.success) {
-        
-      localStorage.setItem('userEmail', email);
-
       window.location.href = "/ProfilePage";
+      localStorage.setItem('userEmail', email);
     } else {
       alert("Email Or Password may be incorrect");
     }

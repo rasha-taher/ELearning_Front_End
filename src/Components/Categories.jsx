@@ -17,7 +17,7 @@ const Categories = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/language/getLanguages"
+          "http://localhost:5000/language/getLanguages"
         );
         console.log(response.data.data);
         setLanguages(response.data.data);

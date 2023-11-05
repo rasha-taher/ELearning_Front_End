@@ -17,7 +17,7 @@ const Appoitment = () => {
     const fetchTeachers = async () => {
       try {
         const teacherResponse = await fetch(
-          "http://localhost:8000/user/getTeachers"
+          "http://localhost:5000/user/getTeachers"
         );
         if (teacherResponse.ok) {
           const teacherData = await teacherResponse.json();
@@ -55,7 +55,7 @@ const Appoitment = () => {
     console.log(appoitmentBody);
 
     try {
-      const response = await fetch("http://localhost:8000/appoitment/add", {
+      const response = await fetch("http://localhost:5000/appoitment/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

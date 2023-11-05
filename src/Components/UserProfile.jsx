@@ -6,6 +6,7 @@ import "../styles/userProfile.css";
 import image from "../images/image.jpg";
 
 const UserProfile = () => {
+  let [userEmail, setUserEmail] = useState("");
   const [userData, setUserData] = useState({
     id: "",
     name: "",
@@ -14,17 +15,14 @@ const UserProfile = () => {
   });
 
   useEffect(() => {
-    const userEmailCookie = document.cookie.split(";").find((row) => row.startsWith("userEmail"));
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.post(
-          "http://localhost:8000/student/getUserByEmail",
-          {
-            email: userEmail,
-          }
-        );
-
+   
+      const fetchData = async () => {
+        setUserEmail(localStorage.setItem('userEmail', userEmail));
+        try {
+          const response = await axios.get(
+              `http://localhost:5000/student/getUserByEmail/${userEmail}`
+           
+          );
           if (response.data.success) {
             const user = response.data.data[0];
             if (user) {
@@ -39,18 +37,15 @@ const UserProfile = () => {
           console.error("Error:", error);
         }
       };
-     
 
       fetchData();
-    } else {
-      console.error("User email cookie not found");
-    }
+   
   }, []);
   
   const updateUserData = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/updateUser",  // Adjust the URL as needed
+        "http://localhost:5000/student/updateUser",  // Adjust the URL as needed
         userData
       );
 

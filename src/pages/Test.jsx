@@ -10,7 +10,7 @@ console.log("idLang",idLanguage)
     const fetchData = async () => {
       try {
         const res1 = await axios.get(
-          `http://127.0.0.1:8000/quiz/getQuizByLanguageId/${idLanguage}`
+          `http://127.0.0.1:5000/quiz/getQuizByLanguageId/${idLanguage}`
         );
 
         console.log(res1.data.data);

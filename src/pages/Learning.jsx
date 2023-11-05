@@ -20,10 +20,10 @@ const Learning = () => {
       setLanguageId( localStorage.getItem("objectIdLanguage"));
       try {
         const res1 = await axios.get(
-          `http://localhost:8000/language/getLanguageById/${languageId}`
+          `http://localhost:5000/language/getLanguageById/${languageId}`
         );
         const res2 = await axios.get(
-          `http://localhost:8000/chapter/getChapterByLanguageId/${languageId}`
+          `http://localhost:5000/chapter/getChapterByLanguageId/${languageId}`
         );
 
         setData(res1.data.data);
