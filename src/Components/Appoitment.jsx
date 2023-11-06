@@ -17,7 +17,7 @@ const Appoitment = () => {
     const fetchTeachers = async () => {
       try {
         const teacherResponse = await fetch(
-          "http://localhost:8000/user/getTeachers"
+          "http://127.0.0.1:5000/user/getTeachers"
         );
         if (teacherResponse.ok) {
           const teacherData = await teacherResponse.json();
@@ -32,7 +32,7 @@ const Appoitment = () => {
 
   const handleAddAppoitment = async () => {
     const studentIdResponse = await fetch(
-      `http://localhost:8000/user/getStudent/${name}`
+      `http://127.0.0.1:5000/user/getStudent/${name}`
     );
 
     if (studentIdResponse.ok) {
@@ -55,7 +55,7 @@ const Appoitment = () => {
     console.log(appoitmentBody);
 
     try {
-      const response = await fetch("http://localhost:8000/appoitment/add", {
+      const response = await fetch("http://127.0.0.1:8000/appoitment/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

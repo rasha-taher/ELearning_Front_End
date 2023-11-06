@@ -3,13 +3,12 @@ import "../styles/signin.css";
 import "../styles/F_responsive.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function SignIn() {
-  const url = "http://localhost:8000";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleSignUpClick = () => {
     const container = document.getElementById("container");
     container.classList.add("right-panel-active");
@@ -19,6 +18,8 @@ function SignIn() {
     const container = document.getElementById("container");
     container.classList.remove("right-panel-active");
   };
+ 
+  const url = "http://127.0.0.1:5000";
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -42,28 +43,27 @@ function SignIn() {
     });
 
     const data = await response.json();
-      
+
     if (data.success) {
-      localStorage.setItem("userEmail", email);
+      Cookies.set("userEmail", formData.email, { expires: 7 }); // Set the cookie with a 7-day expiry
       window.location.href = "/ProfilePage";
-     
     } else {
       alert("Email Or Password may be incorrect");
     }
   };
+
   const handleSignUp = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(url + "/student/addStudent", {
-        name,
-        email,
-        password,
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
       });
 
       if (response.data.success) {
-        localStorage.setItem("userEmail", email);
-
+        Cookies.set("userEmail", formData.email, { expires: 7 }); // Set the cookie with a 7-day expiry
         alert("User added successfully");
       } else {
         alert("Unable to add new user. Error: " + response.data.error.message);
@@ -73,6 +73,8 @@ function SignIn() {
       alert("Unable to add new user. Please try again later.");
     }
   };
+
+  
   return (
     <div className="signin" id="signin">
       <div className="close-icon">

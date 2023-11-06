@@ -21,10 +21,10 @@ const Learning = () => {
     const fetchData = async () => {
       try {
         const res1 = await axios.get(
-          `http://localhost:8000/language/getLanguageById/${languageId}`
+          `http://127.0.0.1:5000/language/getLanguageById/${languageId}`
         );
         const res2 = await axios.get(
-          `http://localhost:8000/chapter/getChapterByLanguageId/${languageId}`
+          `http://127.0.0.1:5000/chapter/getChapterByLanguageId/${languageId}`
         );
         const dataFecthByLanguage = res1.data.data;
         const dataFecthByChapter = res2.data.data;
