@@ -4,7 +4,6 @@ import "../styles/F_responsive.css";
 import { Link } from "react-router-dom";
 
 function SignIn() {
- 
   const handleSignUpClick = () => {
     const container = document.getElementById("container");
     container.classList.add("right-panel-active");
@@ -44,6 +43,7 @@ function SignIn() {
       alert("Email Or Password may be incorrect");
     }
   };
+
   return (
     <div className="signin" id="signin">
       <div className="close-icon">

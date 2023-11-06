@@ -32,7 +32,7 @@ const Appoitment = () => {
 
   const handleAddAppoitment = async () => {
     const studentIdResponse = await fetch(
-      `http://localhost:5000/appoitment/getStudentId/${name}`
+      `http://localhost:5000/user/getStudent/${name}`
     );
 
     if (studentIdResponse.ok) {
@@ -87,7 +87,7 @@ const Appoitment = () => {
         <label className="app-label">
           Name:<br></br>
           <input
-            className="input_appoitment"
+            className="input_app"
             type="text"
             onChange={(e) => setAppoitmentName(e.target.value)}
           ></input>
@@ -96,7 +96,7 @@ const Appoitment = () => {
         <label className="app-label">
           Student Name:<br></br>
           <input
-            className="input_appoitment"
+            className="input_app"
             type="text"
             onChange={(e) => setName(e.target.value)}
           ></input>
@@ -105,7 +105,7 @@ const Appoitment = () => {
         <label className="app-label">
           Teacher:<br></br>
           <select
-            className="input_appoitment"
+            className="input_app"
             onChange={(e) => setTeacherID(e.target.value)}
           >
             <option value="">Select a teacher</option>
@@ -119,17 +119,21 @@ const Appoitment = () => {
         <br></br>
         <label className="app-label">
           Status:<br></br>
-          <input
-            className="input_appoitment"
+          <select
+            className="input_app"
             type="text"
             onChange={(e) => setStatus(e.target.value)}
-          ></input>
+          >
+            <option>On going</option>
+            <option>Cancel</option>
+            <option>Done </option>
+          </select>
         </label>
         <br></br>
         <label className="app-label">
           Date:<br></br>
           <input
-            className="input_appoitment"
+            className="input_app"
             type="date"
             onChange={(e) => setDate(e.target.value)}
           ></input>
@@ -138,7 +142,7 @@ const Appoitment = () => {
         <label className="app-label">
           Start Time:<br></br>
           <input
-            className="input_appoitment"
+            className="input_app"
             type="time"
             onChange={(e) => setAppoitmentStartTime(e.target.value)}
           ></input>
@@ -147,7 +151,7 @@ const Appoitment = () => {
         <label className="app-label">
           End Time:<br></br>
           <input
-            className="input_appoitment"
+            className="input_app"
             type="time"
             onChange={(e) => setAppoitmentEndTime(e.target.value)}
           ></input>
