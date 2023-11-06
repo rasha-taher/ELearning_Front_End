@@ -13,11 +13,10 @@ import QuizSide from "../Components/QuizSide";
 const Learning = () => {
   const [data, setData] = useState(null);
   const [chapter, setChapter] = useState([]);
-  let [languageId, setLanguageId] = useState("");
+  let [languageId, setLanguageId] = useState(localStorage.getItem("objectIdLanguage"));
 
   useEffect(() => {
     const fetchData = async () => {
-      setLanguageId( localStorage.getItem("objectIdLanguage"));
       try {
         const res1 = await axios.get(
           `http://localhost:8000/language/getLanguageById/${languageId}`
@@ -25,11 +24,15 @@ const Learning = () => {
         const res2 = await axios.get(
           `http://localhost:8000/chapter/getChapterByLanguageId/${languageId}`
         );
+        const dataFecthByLanguage = res1.data.data;
+        const dataFecthByChapter = res2.data.data;
+        
+        
 
-        setData(res1.data.data);
-        setChapter(res2.data.data);
+        setData(dataFecthByLanguage);
+        setChapter(dataFecthByChapter);
 
-        console.log(data, "data");
+        console.log(data, "data2");
         console.log(chapter, "chap");
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -38,7 +41,6 @@ const Learning = () => {
 
     fetchData();
   }, []);
-  
 
   return (
     <div>
@@ -64,9 +66,7 @@ const Learning = () => {
           </div>
           <div className="text-center">
             <img
-              src={
-                data &&data[0].language_picture
-              }
+              src={data && data[0].language_picture}
               className="learning-course-img"
               alt="no "
             />
@@ -89,7 +89,7 @@ const Learning = () => {
             ))}
 
           <Link to="/learning/Test">
-          <QuizSide/>
+            <QuizSide />
           </Link>
         </div>
         <div className="contain">
@@ -128,7 +128,7 @@ const Learning = () => {
           </Routes>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

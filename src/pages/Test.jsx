@@ -1,11 +1,37 @@
-import {useState,useEffect} from 'react'
-import QuestionExam from '../Components/QuestionExam';
+import { useState, useEffect } from "react";
+import QuestionExam from "../Components/QuestionExam";
 import "../styles/test.css";
 import axios from "axios";
 
 const Test = ({ idLanguage }) => {
   const [quiz, setQuiz] = useState([]);
-console.log("idLang",idLanguage)
+
+  let val=[]
+  let [userAnswer, setUserAnswer] = useState([]);
+
+  const handleRadioChange = (choose) => {
+    setUserAnswer([...userAnswer, choose]);
+    console.log(" the answer being writen" +userAnswer);
+  };
+  const checkAnswerHandler = () => {
+    const check = (el, q) => {
+      if (el === q) {
+        val([...val, true]);
+      } else {
+        val([...val, false]);
+      }
+    };
+    quiz &&
+      quiz.map(
+        (quest) => userAnswer && userAnswer.map((el) => check(el, quest.answer))
+      );
+
+    onHandleDone();
+  };
+  const onHandleDone = () => {
+    console.log("val", val);
+  };
+  console.log("idLang", idLanguage);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,6 +50,7 @@ console.log("idLang",idLanguage)
 
     fetchData();
   }, []);
+
   return (
     <div className="d-flex flex-column align-items-center">
       <h1 className="text-align-center">Quiz figma Design</h1>
@@ -33,14 +60,17 @@ console.log("idLang",idLanguage)
             id={quest.quiz_id}
             grade={quest.grade}
             quiz={quest.quiz}
+            onRadioChange={handleRadioChange}
+            answer={quest.answer}
             option1={quest.option1}
             option2={quest.option2}
-            option3={quest.option3}
+            option5={quest.option3}
             option4={quest.option4}
           />
         ))}
       <button
-        type="button"
+        type="submit"
+        onSubmit={checkAnswerHandler}
         className="rounded-pill test-submit"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
@@ -100,4 +130,4 @@ console.log("idLang",idLanguage)
   );
 };
 
-export default Test
+export default Test;
