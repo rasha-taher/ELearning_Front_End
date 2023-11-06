@@ -6,12 +6,52 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const UserProfile = () => {
+  const [appointments, setAppointments] = useState([]);
+
   const [userData, setUserData] = useState({
     id: "",
     name: "",
     email: "",
     password: "",
   });
+  const handleSave = async () => {
+    try {
+      const response = await axios.post("http://localhost:5000/student/updateStudent", {
+        id: userData.id,
+        name: userData.name,
+        email: userData.email,
+        password: userData.password
+      });
+
+      if (response.data.success) {
+        alert("User information updated successfully");
+      } else {
+        console.error("Error:", response.data.error);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  const cancelAppointment = async (id) => {
+    try {
+      const response = await axios.post(`http://localhost:5000/appoitment/cancelAppointment/${id}`);
+      if (response.data.success) {
+        // If successful, update the status in the state
+        setAppointments((prevAppointments) =>
+          prevAppointments.map((appointment) =>
+            appointment.appoitment_id === id
+              ? { ...appointment, status: 'Canceled' }
+              : appointment
+          )
+        );
+      } else {
+        console.error('Error:', response.data.error);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   useEffect(() => {
     const userEmailCookie = document.cookie
       .split("; ")
@@ -22,7 +62,7 @@ const UserProfile = () => {
 
       const fetchData = async () => {
         try {
-          const response = await axios.get( // Change from post to get
+          const response = await axios.get( 
             `http://localhost:5000/student/getStudentByEmail/${userEmail}`
           );
 
@@ -35,8 +75,25 @@ const UserProfile = () => {
           console.error("Error:", error);
         }
       };
+      const fetchAppoitment = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:5000/student/getStudentAppoitment/${userEmail}`
+          );
 
+          if (response.data.success) {
+            setAppointments(response.data.data);
+          } else {
+            console.error("Error:", response.data.error);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      };
+    
+    
       fetchData();
+      fetchAppoitment();
     }
   }, []);
   return (
@@ -97,8 +154,8 @@ const UserProfile = () => {
             
           </div>
           <div className="button-container">
-            <button className="save-button"> Save</button>
-          </div>
+        <button className="save-button" onClick={handleSave}> Save</button>
+      </div>
           <div className="table-container">
             <p className="user-info"> Registered Courses</p>
 
@@ -123,6 +180,42 @@ const UserProfile = () => {
               </tr>
             </table>
           </div>
+          <div className="table-container">
+      <p className="user-info"> Your Appointments</p>
+
+      <table className="custom-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Teacher Name</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {appointments.map((appointment, index) => (
+            <tr key={index}>
+              <td>{appointment.appoitment_name}</td>
+              <td>{appointment.name}</td>
+              <td>{appointment.appoitment_date}</td>
+              <td>{appointment. appoitment_start_time}</td>
+              <td>{appointment.appoitment_end_time}</td>
+              <td>{appointment.status}</td>
+              <td>
+              <button
+                  className="action-button delete"
+                  onClick={() => cancelAppointment(appointment.appoitment_id)}
+                >  Cancel Appointment
+                </button>
+              </td>
+            </tr>
+        )  )}
+        </tbody>
+      </table>
+    </div>
         </div>
       </div>
       <Footer />
