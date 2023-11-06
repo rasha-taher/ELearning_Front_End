@@ -1,67 +1,50 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
 import "../styles/userProfile.css";
 import image from "../images/image.jpg";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const UserProfile = () => {
-  let [userEmail, setUserEmail] = useState(
-    localStorage.getItem("userEmail")
-  );
   const [userData, setUserData] = useState({
     id: "",
     name: "",
     email: "",
     password: "",
   });
-
   useEffect(() => {
-    const fetchData = async () => {
-      setUserEmail();
-      try {
-        const response = await axios.get(
-          `http://localhost:8000/student/getUserByEmail/${userEmail}`
-        );
-        if (response.data.success) {
-          const user = response.data.data[0];
-          if (user) {
-            setUserData(user);
+    const userEmailCookie = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("userEmail"));
+
+    if (userEmailCookie) {
+      const userEmail = userEmailCookie.split("=")[1];
+
+      const fetchData = async () => {
+        try {
+          const response = await axios.get( // Change from post to get
+            `http://localhost:5000/student/getStudentByEmail/${userEmail}`
+          );
+
+          if (response.data.success) {
+            setUserData(response.data.data[0]);
           } else {
-            console.error("User data not found in response");
+            console.error("Error:", response.data.error);
           }
-        } else {
-          console.error("Error:", response.data.error);
+        } catch (error) {
+          console.error("Error:", error);
         }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+      };
 
-    fetchData();
-  }, []);
-
-  const updateUserData = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/student/updateUser", // Adjust the URL as needed
-        userData
-      );
-
-      if (response.data.success) {
-        console.log("User data updated successfully.");
-      } else {
-        console.error("Error:", response.data.error);
-      }
-    } catch (error) {
-      console.error("Error:", error);
+      fetchData();
     }
-  };
+  }, []);
   return (
     <div>
       <Header />
+
       <div className="user-container">
-        <img src={image} className="user-image" alt="User" />
+        <img src={image} className="user-image"></img>
         <p className="user-info"> User's ID: {userData.id}</p>
         <p className="user-info">
           {" "}
@@ -110,11 +93,11 @@ const UserProfile = () => {
                 />
               )}
             </div>
+
+            
           </div>
           <div className="button-container">
-            <button className="save-button" onClick={updateUserData}>
-              Save
-            </button>
+            <button className="save-button"> Save</button>
           </div>
           <div className="table-container">
             <p className="user-info"> Registered Courses</p>
@@ -145,6 +128,6 @@ const UserProfile = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default UserProfile;
