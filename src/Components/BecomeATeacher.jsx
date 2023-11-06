@@ -3,11 +3,11 @@ import Footer from "./Footer";
 import "../styles/BecomeATeacher.css";
 import gif1 from "../images/giphy.gif";
 import gif2 from "../images/giphy-25.gif";
-import axios from 'axios';
+import axios from "axios";
 import React, { useState } from "react";
 
 const BecomeATeacher = () => {
-  const url = "http://localhost:5000";
+  const url = "http://localhost:8000";
   const [teacher_name, setName] = useState("");
   const [teacher_email, setEmail] = useState("");
   const [message, setMessage] = useState("");

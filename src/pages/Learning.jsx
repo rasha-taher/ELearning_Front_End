@@ -13,21 +13,21 @@ import QuizSide from "../Components/QuizSide";
 const Learning = () => {
   const [data, setData] = useState(null);
   const [chapter, setChapter] = useState([]);
-  let [languageId, setLanguageId] = useState(localStorage.getItem("objectIdLanguage"));
+  let [languageId, setLanguageId] = useState(
+    localStorage.getItem("objectIdLanguage")
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res1 = await axios.get(
-          `http://localhost:5000/language/getLanguageById/${languageId}`
+          `http://localhost:8000/language/getLanguageById/${languageId}`
         );
         const res2 = await axios.get(
-          `http://localhost:5000/chapter/getChapterByLanguageId/${languageId}`
+          `http://localhost:8000/chapter/getChapterByLanguageId/${languageId}`
         );
         const dataFecthByLanguage = res1.data.data;
         const dataFecthByChapter = res2.data.data;
-        
-        
 
         setData(dataFecthByLanguage);
         setChapter(dataFecthByChapter);
@@ -128,7 +128,7 @@ const Learning = () => {
           </Routes>
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

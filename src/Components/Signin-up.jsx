@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "../styles/signin.css";
 import "../styles/F_responsive.css";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 function SignIn() {
-  const url="http://localhost:5000"
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const url = "http://localhost:8000";
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSignUpClick = () => {
     const container = document.getElementById("container");
@@ -33,7 +33,7 @@ function SignIn() {
   };
 
   const handleLogin = async () => {
-    const response = await fetch(url+ "/student/studentLogin", {
+    const response = await fetch(url + "/student/studentLogin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,10 +42,11 @@ function SignIn() {
     });
 
     const data = await response.json();
-
+      
     if (data.success) {
+      localStorage.setItem("userEmail", email);
       window.location.href = "/ProfilePage";
-      localStorage.setItem('userEmail', email);
+     
     } else {
       alert("Email Or Password may be incorrect");
     }
@@ -54,22 +55,22 @@ function SignIn() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(url+ '/student/addStudent', {
+      const response = await axios.post(url + "/student/addStudent", {
         name,
         email,
         password,
       });
 
       if (response.data.success) {
-        localStorage.setItem('userEmail', email);
+        localStorage.setItem("userEmail", email);
 
-        alert('User added successfully');
+        alert("User added successfully");
       } else {
-        alert('Unable to add new user. Error: ' + response.data.error.message);
+        alert("Unable to add new user. Error: " + response.data.error.message);
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Unable to add new user. Please try again later.');
+      console.error("Error:", error);
+      alert("Unable to add new user. Please try again later.");
     }
   };
   return (
@@ -89,27 +90,27 @@ function SignIn() {
           <form action="#" className="sign-form" onSubmit={handleSignUp}>
             <h1 className="cr-h1">Create Account</h1>
             <input
-            type="text"
-            placeholder="Name"
-            className="sign-input"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="sign-input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="sign-input"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
+              type="text"
+              placeholder="Name"
+              className="sign-input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="sign-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="sign-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br />
             <button className="btn-signin">Sign Up</button>
             <div className="sign">
               {" "}

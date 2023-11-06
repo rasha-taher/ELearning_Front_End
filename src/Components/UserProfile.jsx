@@ -6,7 +6,9 @@ import "../styles/userProfile.css";
 import image from "../images/image.jpg";
 
 const UserProfile = () => {
-  let [userEmail, setUserEmail] = useState("");
+  let [userEmail, setUserEmail] = useState(
+    localStorage.getItem("userEmail")
+  );
   const [userData, setUserData] = useState({
     id: "",
     name: "",
@@ -15,37 +17,34 @@ const UserProfile = () => {
   });
 
   useEffect(() => {
-   
-      const fetchData = async () => {
-        setUserEmail(localStorage.setItem('userEmail', userEmail));
-        try {
-          const response = await axios.get(
-              `http://localhost:5000/student/getUserByEmail/${userEmail}`
-           
-          );
-          if (response.data.success) {
-            const user = response.data.data[0];
-            if (user) {
-              setUserData(user);
-            } else {
-              console.error("User data not found in response");
-            }
+    const fetchData = async () => {
+      setUserEmail();
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/student/getUserByEmail/${userEmail}`
+        );
+        if (response.data.success) {
+          const user = response.data.data[0];
+          if (user) {
+            setUserData(user);
           } else {
-            console.error("Error:", response.data.error);
+            console.error("User data not found in response");
           }
-        } catch (error) {
-          console.error("Error:", error);
+        } else {
+          console.error("Error:", response.data.error);
         }
-      };
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
 
-      fetchData();
-   
+    fetchData();
   }, []);
-  
+
   const updateUserData = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/student/updateUser",  // Adjust the URL as needed
+        "http://localhost:8000/student/updateUser", // Adjust the URL as needed
         userData
       );
 
@@ -64,7 +63,10 @@ const UserProfile = () => {
       <div className="user-container">
         <img src={image} className="user-image" alt="User" />
         <p className="user-info"> User's ID: {userData.id}</p>
-        <p className="user-info"> Total Score : <p> 1000</p> </p>
+        <p className="user-info">
+          {" "}
+          Total Score : <p> 1000</p>{" "}
+        </p>
         <div className="change-info-container">
           <div className="row">
             <div>
@@ -108,14 +110,11 @@ const UserProfile = () => {
                 />
               )}
             </div>
-
-        
           </div>
           <div className="button-container">
-         
-        <button className="save-button" onClick={updateUserData}>
-          Save
-        </button>
+            <button className="save-button" onClick={updateUserData}>
+              Save
+            </button>
           </div>
           <div className="table-container">
             <p className="user-info"> Registered Courses</p>

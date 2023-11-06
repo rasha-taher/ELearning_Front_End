@@ -6,12 +6,12 @@ import axios from "axios";
 const Test = ({ idLanguage }) => {
   const [quiz, setQuiz] = useState([]);
 
-  let val=[]
+  let val = [];
   let [userAnswer, setUserAnswer] = useState([]);
 
   const handleRadioChange = (choose) => {
     setUserAnswer([...userAnswer, choose]);
-    console.log(" the answer being writen" +userAnswer);
+    console.log(" the answer being writen" + userAnswer);
   };
   const checkAnswerHandler = () => {
     const check = (el, q) => {
@@ -36,7 +36,7 @@ const Test = ({ idLanguage }) => {
     const fetchData = async () => {
       try {
         const res1 = await axios.get(
-          `http://127.0.0.1:5000/quiz/getQuizByLanguageId/${idLanguage}`
+          `http://127.0.0.1:8000/quiz/getQuizByLanguageId/${idLanguage}`
         );
 
         console.log(res1.data.data);
