@@ -32,7 +32,7 @@ const Categories = () => {
       );
 
       const response = await axios.post(
-        "https://mind-x-backend.onrender.com/studentInfo/enrollCourse",
+        "http://localhost:5000/studentInfo/enrollCourse",
         {
           student_id: userId,
           language_id: languageId,
@@ -62,7 +62,7 @@ const Categories = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://mind-x-backend.onrender.com/language/getLanguages"
+          "http://localhost:5000/language/getLanguages"
         );
         setLanguages(response.data.data);
       } catch (error) {

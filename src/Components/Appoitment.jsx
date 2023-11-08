@@ -17,7 +17,7 @@ const Appoitment = () => {
     const fetchTeachers = async () => {
       try {
         const teacherResponse = await fetch(
-          "https://mind-x-backend.onrender.com/user/getTeachers"
+          "https://localhost:5000/user/getTeachers"
         );
         if (teacherResponse.ok) {
           const teacherData = await teacherResponse.json();
@@ -32,7 +32,7 @@ const Appoitment = () => {
 
   const handleAddAppoitment = async () => {
     const studentIdResponse = await fetch(
-      `https://mind-x-backend.onrender.com/user/getStudent/${name}`
+      `https://localhost:5000/user/getStudent/${name}`
     );
 
     if (studentIdResponse.ok) {
@@ -47,24 +47,19 @@ const Appoitment = () => {
       appoitment_date,
       appoitment_start_time,
       appoitment_end_time,
-      status,
-      student_id,
-      teacher_id,
+      status
     };
 
     console.log(appoitmentBody);
 
     try {
-      const response = await fetch(
-        "https://mind-x-backend.onrender.com/appoitment/add",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(appoitmentBody),
-        }
-      );
+      const response = await fetch("https://localhost:5000/appoitment/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(appoitmentBody),
+      });
 
       if (response.ok) {
         const data = await response.json();

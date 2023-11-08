@@ -6,37 +6,26 @@ import axios from "axios";
 const Test = ({ idLanguage }) => {
   const [quiz, setQuiz] = useState([]);
 
-  let val = [];
-  let [userAnswer, setUserAnswer] = useState([]);
+let [val, setVal] = useState([]);
+  let [userAnswer, setUserAnswer] = useState({});
+const handleUserAnswer = (questionId, answer) => {
+  setUserAnswer((prevUserAnswer) => ({
+    ...prevUserAnswer,
+    [questionId]: answer,
+  }));
+  
+};
+  // const handleRadioChange = (choose) => {
+  //   setUserAnswer([...userAnswer, choose]);
+  //   console.log(" the answer being writen" + userAnswer);
+  // };
 
-  const handleRadioChange = (choose) => {
-    setUserAnswer([...userAnswer, choose]);
-    console.log(" the answer being writen" + userAnswer);
-  };
-  const checkAnswerHandler = () => {
-    const check = (el, q) => {
-      if (el === q) {
-        val([...val, true]);
-      } else {
-        val([...val, false]);
-      }
-    };
-    quiz &&
-      quiz.map(
-        (quest) => userAnswer && userAnswer.map((el) => check(el, quest.answer))
-      );
-
-    onHandleDone();
-  };
-  const onHandleDone = () => {
-    console.log("val", val);
-  };
   console.log("idLang", idLanguage);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res1 = await axios.get(
-          `https://mind-x-backend.onrender.com/quiz/getQuizByLanguageId/${idLanguage}`
+          `http://127.0.0.1:5000/quiz/getQuizByLanguageId/${idLanguage}`
         );
 
         console.log(res1.data.data);
@@ -50,33 +39,51 @@ const Test = ({ idLanguage }) => {
 
     fetchData();
   }, []);
-
+    const checkAnswerHandler = (e) => {
+      e.preventDefault();
+      console.log("answer", userAnswer);
+      
+      {
+        quiz && quiz.map((quest) => {
+          let val2 = (quest.answer)
+          setVal(val2)
+        
+        });
+      }
+      // for (let i = 0; i < userAnswer.length; i++){
+      //   if (userAnswer[i]===)
+      // }
+      console.log("val", val);
+    };
   return (
     <div className="d-flex flex-column align-items-center">
       <h1 className="text-align-center">Quiz figma Design</h1>
-      {quiz &&
-        quiz.map((quest) => (
-          <QuestionExam
-            id={quest.quiz_id}
-            grade={quest.grade}
-            quiz={quest.quiz}
-            onRadioChange={handleRadioChange}
+      <form onSubmit={checkAnswerHandler}>
+        {quiz &&
+          quiz.map((quest) => (
+            <QuestionExam
+              id={quest.quiz_id}
+              grade={quest.grade}
+              quiz={quest.quiz}
+             
+            onRadioChange={(answer) => handleUserAnswer(quest.quiz_id, answer)}
             answer={quest.answer}
             option1={quest.option1}
             option2={quest.option2}
-            option5={quest.option3}
+            option3={quest.option3}
             option4={quest.option4}
           />
         ))}
       <button
         type="submit"
-        onSubmit={checkAnswerHandler}
+        
         className="rounded-pill test-submit"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
         Submit
-      </button>
+        </button>
+        </form>
       {/* <!-- Button trigger modal --> */}
       {/* <button
         type="button"

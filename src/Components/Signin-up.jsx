@@ -19,7 +19,7 @@ function SignIn() {
     container.classList.remove("right-panel-active");
   };
 
-  const url = "https://mind-x-backend.onrender.com";
+  const url = "https://localhost:5000";
   const [formData, setFormData] = useState({
     email: "",
     password: "",

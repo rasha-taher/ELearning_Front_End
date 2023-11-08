@@ -20,7 +20,7 @@ const UserProfile = () => {
   const handleDropCourse = async (studentInfoId) => {
     try {
       const response = await axios.delete(
-        `https://mind-x-backend.onrender.com/studentInfo/dropCourse/${studentInfoId}`
+        `https://localhost:5000/studentInfo/dropCourse/${studentInfoId}`
       );
       const data = response.data;
 
@@ -42,7 +42,7 @@ const UserProfile = () => {
   const handleSave = async () => {
     try {
       const response = await axios.post(
-        "https://mind-x-backend.onrender.com/student/updateStudent",
+        "https://localhost:5000/student/updateStudent",
         {
           id: userData.id,
           name: userData.name,
@@ -64,7 +64,7 @@ const UserProfile = () => {
   const cancelAppointment = async (id) => {
     try {
       const response = await axios.post(
-        `https://mind-x-backend.onrender.com/appoitment/cancelAppointment/${id}`
+        `https://localhost:5000/appoitment/cancelAppointment/${id}`
       );
       if (response.data.success) {
         // If successful, update the status in the state
@@ -94,7 +94,7 @@ const UserProfile = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `https://mind-x-backend.onrender.com/student/getStudentByEmail/${userEmail}`
+            `https://localhost:5000/student/getStudentByEmail/${userEmail}`
           );
 
           if (response.data.success) {
@@ -111,7 +111,7 @@ const UserProfile = () => {
       const fetchAppoitment = async () => {
         try {
           const response = await axios.get(
-            `https://mind-x-backend.onrender.com/student/getStudentAppoitment/${userEmail}`
+            `https://localhost:5000/student/getStudentAppoitment/${userEmail}`
           );
 
           if (response.data.success) {
@@ -127,7 +127,7 @@ const UserProfile = () => {
       const fetchStudentInformation = async () => {
         try {
           const response = await axios.get(
-            `https://mind-x-backend.onrender.com/studentInfo/getStudentInformation/${userEmail}`
+            `https://localhost:5000/studentInfo/getStudentInformation/${userEmail}`
           );
           if (response.data.success) {
             setRegisteredCourses(response.data.data);
@@ -160,7 +160,7 @@ const UserProfile = () => {
   const deleteAccount = async () => {
     try {
       const response = await axios.post(
-        `https://mind-x-backend.onrender.com/studentInfo/deleteAccount`,
+        `https://localhost:5000/studentInfo/deleteAccount`,
         {
           // Include any necessary data for your backend function
         }
