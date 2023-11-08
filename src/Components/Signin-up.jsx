@@ -18,8 +18,8 @@ function SignIn() {
     const container = document.getElementById("container");
     container.classList.remove("right-panel-active");
   };
- 
-  const url = "http://127.0.0.1:5000";
+
+  const url = "https://mind-x-backend.onrender.com";
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -64,7 +64,7 @@ function SignIn() {
 
       if (response.data.success) {
         Cookies.set("userEmail", formData.email, { expires: 7 }); // Set the cookie with a 7-day expiry
-        
+
         alert("User added successfully");
       } else {
         alert("Unable to add new user. Error: " + response.data.error.message);
@@ -75,7 +75,6 @@ function SignIn() {
     }
   };
 
-  
   return (
     <div className="signin" id="signin">
       <div className="close-icon">

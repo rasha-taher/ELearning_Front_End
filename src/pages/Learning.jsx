@@ -21,10 +21,10 @@ const Learning = () => {
     const fetchData = async () => {
       try {
         const res1 = await axios.get(
-          `http://127.0.0.1:5000/language/getLanguageById/${languageId}`
+          `https://mind-x-backend.onrender.com/language/getLanguageById/${languageId}`
         );
         const res2 = await axios.get(
-          `http://127.0.0.1:5000/chapter/getChapterByLanguageId/${languageId}`
+          `https://mind-x-backend.onrender.com/chapter/getChapterByLanguageId/${languageId}`
         );
         const dataFecthByLanguage = res1.data.data;
         const dataFecthByChapter = res2.data.data;

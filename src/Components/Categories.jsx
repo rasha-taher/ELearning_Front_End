@@ -15,20 +15,24 @@ const Categories = () => {
 
   const handleEnroll = async (languageId) => {
     try {
-      const userId = document.cookie.split("; ").find((row) => row.startsWith("userId")).split("=")[1];
-      const enrolled_day = new Date().toISOString().split('T')[0];
+      const userId = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("userId"))
+        .split("=")[1];
+      const enrolled_day = new Date().toISOString().split("T")[0];
       const days_of_attendance = 1;
       const completed = false;
       const scores_count = 0;
       const chapters_completed = 0;
-  
-     
+
       const days_to_complete = 30;
       const expected_finish_day = new Date(enrolled_day);
-      expected_finish_day.setDate(expected_finish_day.getDate() + days_to_complete);
-  
+      expected_finish_day.setDate(
+        expected_finish_day.getDate() + days_to_complete
+      );
+
       const response = await axios.post(
-        "http://localhost:5000/studentInfo/enrollCourse",
+        "https://mind-x-backend.onrender.com/studentInfo/enrollCourse",
         {
           student_id: userId,
           language_id: languageId,
@@ -37,12 +41,12 @@ const Categories = () => {
           scores_count,
           chapters_completed,
           enrolled_day,
-          expected_finish_day: expected_finish_day.toISOString().split('T')[0], // Convert to YYYY-MM-DD format
+          expected_finish_day: expected_finish_day.toISOString().split("T")[0], // Convert to YYYY-MM-DD format
         }
       );
-  
+
       const data = response.data;
-  
+
       if (data.success) {
         alert("You have enrolled successfully!");
         window.location.href = "/learning";
@@ -50,16 +54,15 @@ const Categories = () => {
         console.error(data.message);
       }
     } catch (error) {
-      console.error('Error enrolling:', error);
+      console.error("Error enrolling:", error);
     }
   };
-  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:5000/language/getLanguages"
+          "https://mind-x-backend.onrender.com/language/getLanguages"
         );
         setLanguages(response.data.data);
       } catch (error) {

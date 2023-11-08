@@ -14,14 +14,13 @@ const UserProfile = () => {
     name: "",
     email: "",
     password: "",
-    image:""
+    image: "",
   });
 
-  
   const handleDropCourse = async (studentInfoId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/studentInfo/dropCourse/${studentInfoId}`
+        `https://mind-x-backend.onrender.com/studentInfo/dropCourse/${studentInfoId}`
       );
       const data = response.data;
 
@@ -43,13 +42,13 @@ const UserProfile = () => {
   const handleSave = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/student/updateStudent",
+        "https://mind-x-backend.onrender.com/student/updateStudent",
         {
           id: userData.id,
           name: userData.name,
           email: userData.email,
           password: userData.password,
-          image:userData.image
+          image: userData.image,
         }
       );
 
@@ -65,7 +64,7 @@ const UserProfile = () => {
   const cancelAppointment = async (id) => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/appoitment/cancelAppointment/${id}`
+        `https://mind-x-backend.onrender.com/appoitment/cancelAppointment/${id}`
       );
       if (response.data.success) {
         // If successful, update the status in the state
@@ -95,7 +94,7 @@ const UserProfile = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5000/student/getStudentByEmail/${userEmail}`
+            `https://mind-x-backend.onrender.com/student/getStudentByEmail/${userEmail}`
           );
 
           if (response.data.success) {
@@ -112,7 +111,7 @@ const UserProfile = () => {
       const fetchAppoitment = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5000/student/getStudentAppoitment/${userEmail}`
+            `https://mind-x-backend.onrender.com/student/getStudentAppoitment/${userEmail}`
           );
 
           if (response.data.success) {
@@ -128,7 +127,7 @@ const UserProfile = () => {
       const fetchStudentInformation = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5000/studentInfo/getStudentInformation/${userEmail}`
+            `https://mind-x-backend.onrender.com/studentInfo/getStudentInformation/${userEmail}`
           );
           if (response.data.success) {
             setRegisteredCourses(response.data.data);
@@ -161,7 +160,7 @@ const UserProfile = () => {
   const deleteAccount = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/studentInfo/deleteAccount`,
+        `https://mind-x-backend.onrender.com/studentInfo/deleteAccount`,
         {
           // Include any necessary data for your backend function
         }
@@ -178,7 +177,7 @@ const UserProfile = () => {
       console.error("Error deleting account:", error);
     }
   };
-  const[selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
