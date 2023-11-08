@@ -4,7 +4,7 @@ import "../styles/userProfile.css";
 import image from "../images/image.jpg";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import Cookies from "js-cookie";
 const UserProfile = () => {
   const [appointments, setAppointments] = useState([]);
   const [registeredCourses, setRegisteredCourses] = useState([]);
@@ -14,20 +14,29 @@ const UserProfile = () => {
     name: "",
     email: "",
     password: "",
+    image:""
   });
+
+  
   const handleDropCourse = async (studentInfoId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/studentInfo/dropCourse/${studentInfoId}`);
+      const response = await axios.delete(
+        `http://localhost:5000/studentInfo/dropCourse/${studentInfoId}`
+      );
       const data = response.data;
 
       if (data.success) {
         // Remove the deleted course from the state
-        setRegisteredCourses(prevCourses => prevCourses.filter(course => course.student_info_id !== studentInfoId));
+        setRegisteredCourses((prevCourses) =>
+          prevCourses.filter(
+            (course) => course.student_info_id !== studentInfoId
+          )
+        );
       } else {
         console.error(data.message);
       }
     } catch (error) {
-      console.error('Error dropping course:', error);
+      console.error("Error dropping course:", error);
     }
   };
 
@@ -40,6 +49,7 @@ const UserProfile = () => {
           name: userData.name,
           email: userData.email,
           password: userData.password,
+          image:userData.image
         }
       );
 
@@ -90,6 +100,8 @@ const UserProfile = () => {
 
           if (response.data.success) {
             setUserData(response.data.data[0]);
+            console.log(" the user's id: " + response.data.data[0].id);
+            Cookies.set("userId", response.data.data[0].id, { expires: 7 }); // Set the cookie with a 7-day expiry
           } else {
             console.error("Error:", response.data.error);
           }
@@ -133,17 +145,69 @@ const UserProfile = () => {
       fetchAppoitment();
     }
   }, []);
+  const handleDeleteAccount = () => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete your account?"
+    );
+    if (confirmDelete) {
+      // Execute backend function to delete account
+      document.cookie =
+        "userEmail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+      deleteAccount();
+    }
+  };
+
+  const deleteAccount = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/studentInfo/deleteAccount`,
+        {
+          // Include any necessary data for your backend function
+        }
+      );
+
+      const data = response.data;
+
+      if (data.success) {
+        alert("Account Deleted Successfully! ");
+      } else {
+        console.error(data.message);
+      }
+    } catch (error) {
+      console.error("Error deleting account:", error);
+    }
+  };
+  const[selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setSelectedImage(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div>
       <Header />
 
       <div className="user-container">
-        <img src={image} className="user-image"></img>
+        <label className="login-label">
+          Language image :
+          <input type="file" accept="image/*" onChange={handleImageChange} />
+        </label>
+
+        {selectedImage && (
+          <img src={selectedImage} className="user-image" alt="Selected" />
+        )}
         <p className="user-info"> User's ID: {userData.id}</p>
-        <p className="user-info">
-          {" "}
-          Total Score : <p> 1000</p>{" "}
-        </p>
+
         <div className="change-info-container">
           <div className="row">
             <div>
@@ -192,27 +256,34 @@ const UserProfile = () => {
               {" "}
               Save
             </button>
+            <button
+              className="save-button del"
+              onClick={handleDeleteAccount} // Add an event handler for delete button
+            >
+              Delete Account
+            </button>
           </div>
+
           <div className="table-container">
             <p className="user-info"> Registered Courses</p>
             <table className="custom-table">
               <tr>
                 <th>Language Name</th>
-                {/* <th>Teacher Name</th> */}
+                <th>Day of enrollement</th>
                 <th>Days of attendance</th>
                 <th>Completed</th>
                 <th>Scores</th>
-                <th>Chapter Completed</th>
+                <th>Last Day</th>
                 <th>Action</th>
               </tr>
               {registeredCourses.map((course) => (
                 <tr key={course.student_info_id}>
                   <td>{course.language_id}</td>
-                  {/* <td>{course.teacher_name}</td> */}
+                  <td>{course.enrolled_day}</td>
                   <td>{course.days_of_attendance}</td>
                   <td>{course.completed ? "Completed" : "In Progress"}</td>
                   <td>{course.scores_count}</td>
-                  <td>{course.chapter_completed}</td>
+                  <td>{course.excpected_finish_day}</td>
                   <td>
                     <button
                       className="action-button delete"

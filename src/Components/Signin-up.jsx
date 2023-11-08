@@ -64,6 +64,7 @@ function SignIn() {
 
       if (response.data.success) {
         Cookies.set("userEmail", formData.email, { expires: 7 }); // Set the cookie with a 7-day expiry
+        
         alert("User added successfully");
       } else {
         alert("Unable to add new user. Error: " + response.data.error.message);
